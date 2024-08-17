@@ -1,0 +1,15 @@
+fileignoreconfig:
+- filename: src/main/resources/db/migration/V1__CREATE_USERS_TABLE.sql
+  checksum: 2c0230a7e62485004c25b3cbc3b814deb352963ed3b3bd40cdffba61385e9788
+- filename: src/main/resources/db/migration/V2__CREATE_NOTES_TABLE.sql
+  checksum: 4bc899ce7ce37ca89a59ef7ffb8d9dca920f8e7913fa9813a2f12533033c7f2b
+- filename: src/main/resources/db/migration/V3__CREATE_CATEGORIES_TABLE.sql
+  checksum: 119ab27e6385c4ed22edb70c16375c1a9c03ae515fee0193ff260a7d7c4cdda4
+- filename: src/main/resources/db/migration/V4__CREATE_CATEGORIES_FK_TO_NOTES_TABLE.sql
+  checksum: 61b1e9c60466adf08c1389398e09de933743db5aba919a6b88ac7923f562c174
+- filename: src/main/resources/db/migration/V5__CREATE_TAGS_TABLE.sql
+  checksum: e35fb5f831f10546d79a5154c5fa31aa3ee97773799ed92e87afec4cf3b8835a
+- filename: src/main/resources/db/migration/V6__CREATE_NOTE_TAGS_TABLE.sql
+  checksum: d8c5aed909ebc327c375c1f149dc08d3b5c4296f8b5bd584710bf40c574f4ee3
+version: ""
+
