@@ -1,7 +1,7 @@
 CREATE TABLE users
 (
     id            uuid                     NOT NULL,
-    username      character varying(255)[] NOT NULL,
+    username      character varying(255) NOT NULL,
     first_name     character varying(255),
     last_name     character varying(255),
     email         character varying(255)   NOT NULL,
