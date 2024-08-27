@@ -6,6 +6,15 @@ input CreateUserInput {
     email: String!
 }
 
+input LoginInput {
+    username: String!
+    password: String!
+}
+
+type AuthResponse {
+    token: String!
+}
+
 type User {
     id: ID!
     username: String!
@@ -19,4 +28,5 @@ type Query {
 
 type Mutation {
     createUser(createUserInput: CreateUserInput!): User!
+    login(loginInput: LoginInput!): AuthResponse!
 }

@@ -11,8 +11,11 @@ fileignoreconfig:
   checksum: d8c5aed909ebc327c375c1f149dc08d3b5c4296f8b5bd584710bf40c574f4ee3
 - filename: src/main/resources/db/migration/V1__CREATE_USERS_TABLE.sql
   checksum: 0d3ff617e275a744fcdcb9cd9edef6f254d6f8ca8189eaf0ce4cb8b52a09420e
-- filename: src/main/java/com/learnings/notes_app_graphql/service/UserService.java
-  checksum: 329ee0981b43a83c2c9aeed4c6fa3033e66bbfe4f110026ea9159c2c108b090b
+- filename: src/main/java/com/learnings/notes_app_graphql/security/JwtAuthenticationFilter.java
+  checksum: 7f0ad986f19d277a4298b5d14c2896769893e0896d82141594a6ecd8a9ccc1af
 - filename: src/main/resources/graphql/schema.graphqls
-  checksum: 357362b80edbfe971d2b6d68fead4db39f52737603fdb15f242859f4a153b981
-version: ""
+  checksum: fcf3398476e443a74cd782fcd1df3c034cf57c368c2a1d40333210efe8ecfba6
+- filename: src/main/java/com/learnings/notes_app_graphql/service/UserService.java
+  checksum: e43ae87f6deddeb75115b1031269bbfb2a167539e713adfbf76856d512335ef7
+- filename: src/main/java/com/learnings/notes_app_graphql/util/JwtUtil.java
+  checksum: 8f5c8633fca7388e675d72349d6533f8d55cc25bd1776a3ceb4abadb84d5c5f5

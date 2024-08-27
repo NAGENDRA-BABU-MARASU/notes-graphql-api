@@ -1,10 +1,15 @@
 package com.learnings.notes_app_graphql.service;
 
+import com.learnings.notes_app_graphql.dto.AuthResponse;
+import com.learnings.notes_app_graphql.dto.CreateUserInput;
 import com.learnings.notes_app_graphql.entity.User;
-import com.learnings.notes_app_graphql.input.CreateUserInput;
 import com.learnings.notes_app_graphql.repository.UserRepository;
+import com.learnings.notes_app_graphql.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +21,14 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     public User createUser(CreateUserInput createUserInput) {
         User user = new User();
@@ -31,10 +43,22 @@ public class UserService {
     }
 
     public User getUser(String username) {
-        return userRepository.findByUsername(username);
+        return userRepository.findByUsername(username).get();
     }
+
+    public AuthResponse login(String username, String password) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(username, password)
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String token = jwtUtil.generateToken(authentication);
+        return new AuthResponse(token);
+    }
+
 
     private String encodePassword(String password) {
         return passwordEncoder.encode(password);
     }
+
 }

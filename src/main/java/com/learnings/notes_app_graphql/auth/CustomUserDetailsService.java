@@ -1,4 +1,4 @@
-package com.learnings.notes_app_graphql.service;
+package com.learnings.notes_app_graphql.auth;
 
 import com.learnings.notes_app_graphql.entity.User;
 import com.learnings.notes_app_graphql.repository.UserRepository;
@@ -10,20 +10,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
+
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
-        if(user == null) {
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        }
+        User user = userRepository
+                .findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+        return new CustomUserDetails(user);
 
-        return new org.springframework.security.core.userdetails.User(
-                user.getUsername(),
-                user.getPassword_hash(),
-                true, true, true, true, null
-                );
     }
 }

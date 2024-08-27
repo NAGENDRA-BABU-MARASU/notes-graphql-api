@@ -1,4 +1,4 @@
-package com.learnings.notes_app_graphql.input;
+package com.learnings.notes_app_graphql.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

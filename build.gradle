@@ -30,6 +30,9 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core'
 	implementation 'org.flywaydb:flyway-database-postgresql'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // Check for the latest version
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5' // Check for the latest version
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5' // Check for the latest version
 	testImplementation 'org.springframework.security:spring-security-test'
 	compileOnly 'org.projectlombok:lombok'
 //	developmentOnly 'org.springframework.boot:spring-boot-devtools'
