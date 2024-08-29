@@ -19,3 +19,7 @@ fileignoreconfig:
   checksum: e43ae87f6deddeb75115b1031269bbfb2a167539e713adfbf76856d512335ef7
 - filename: src/main/java/com/learnings/notes_app_graphql/util/JwtUtil.java
   checksum: 8f5c8633fca7388e675d72349d6533f8d55cc25bd1776a3ceb4abadb84d5c5f5
+fileignoreconfig:
+- filename: src/main/java/com/learnings/notes_app_graphql/service/UserService.java
+  checksum: 8c7899e6d4a3e30c32123e4bae1a1c0c636c1314d3aabfa3a8b36c07d56dbe06
+version: ""

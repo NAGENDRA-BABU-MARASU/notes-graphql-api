@@ -3,10 +3,12 @@ package com.learnings.notes_app_graphql.service;
 import com.learnings.notes_app_graphql.dto.AuthResponse;
 import com.learnings.notes_app_graphql.dto.CreateUserInput;
 import com.learnings.notes_app_graphql.entity.User;
+import com.learnings.notes_app_graphql.exception_handling.exception.WrongPasswordException;
 import com.learnings.notes_app_graphql.repository.UserRepository;
 import com.learnings.notes_app_graphql.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -47,13 +49,18 @@ public class UserService {
     }
 
     public AuthResponse login(String username, String password) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(username, password)
-        );
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(username, password)
+            );
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtUtil.generateToken(authentication);
-        return new AuthResponse(token);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String token = jwtUtil.generateToken(authentication);
+            return new AuthResponse(token);
+        } catch(BadCredentialsException ex) {
+            throw new WrongPasswordException();
+        }
+
     }
 
 
