@@ -1,6 +1,6 @@
 CREATE TABLE notes(
     id uuid,
-    content jsonb,
+    content text,
     title character varying(255),
     user_id uuid,
     created_at timestamp without time zone,

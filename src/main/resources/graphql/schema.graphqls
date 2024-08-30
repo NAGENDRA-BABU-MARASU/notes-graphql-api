@@ -11,6 +11,11 @@ input LoginInput {
     password: String!
 }
 
+input CreateNoteInput {
+    content: String!
+    title: String!
+}
+
 type AuthResponse {
     token: String!
 }
@@ -22,11 +27,24 @@ type User {
     created_at: String!
 }
 
+type NoteResponse {
+    id: ID!
+    content: String!
+    title: String!
+    username: String!
+    category: String!
+}
+
 type Query {
     getUser(username: String!): User
 }
 
 type Mutation {
+#   Users
     createUser(createUserInput: CreateUserInput!): User!
     login(loginInput: LoginInput!): AuthResponse!
+
+#   Notes
+    createNote(createNoteInput: CreateNoteInput!): NoteResponse!
 }
+

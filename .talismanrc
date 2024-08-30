@@ -23,3 +23,8 @@ fileignoreconfig:
 - filename: src/main/java/com/learnings/notes_app_graphql/service/UserService.java
   checksum: 8c7899e6d4a3e30c32123e4bae1a1c0c636c1314d3aabfa3a8b36c07d56dbe06
 version: ""
+
+fileignoreconfig:
+- filename: src/main/resources/db/migration/V2__CREATE_NOTES_TABLE.sql
+  checksum: f9050b021a8c236af0b9a93873ca64356dbf358d066b7657e290eddbaa04ad29
+version: ""

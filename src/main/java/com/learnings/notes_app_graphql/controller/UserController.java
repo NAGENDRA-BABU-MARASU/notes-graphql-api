@@ -24,7 +24,7 @@ public class UserController {
         return userService.getUser(username);
     }
 
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("isAnonymous()")
     @MutationMapping
     public User createUser(@Argument CreateUserInput createUserInput){
         return userService.createUser(createUserInput);
